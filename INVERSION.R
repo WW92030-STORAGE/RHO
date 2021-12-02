@@ -11,7 +11,7 @@ inv <- function(c) {
   return(16 * d1 + d2)
 }
 
-invert <- function(c) { # The input is of the form "#XXXXXX"
+invert <- function(c) { # Invert a hex color. The input is of the form "#XXXXXX"
   red <- 255 - inv(substr(c, 2, 3))
   green <- 255 - inv(substr(c, 4, 5))
   blue <- 255 - inv(substr(c, 6, 7))
