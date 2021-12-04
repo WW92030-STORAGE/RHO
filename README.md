@@ -1,2 +1,2 @@
 # RHO
-R Programs and Tidbits
+R Programs and Tidbits for various purposes.
