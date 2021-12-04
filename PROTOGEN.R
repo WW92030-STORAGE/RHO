@@ -1,4 +1,4 @@
-hex <- function(n) {
+hex <- function(n) { // Integer to hex string
     n <- n %% 256
     p1 <- n %/% 16
     p2 <- n %% 16
@@ -11,7 +11,7 @@ hex <- function(n) {
     return(paste(c1, c2, sep = ""))
 }
 
-primagen <- function() {
+primagen <- function() { // Generate an array of 3 random byte integers
     return(floor(runif(3, 0, 255)))
 }
 
