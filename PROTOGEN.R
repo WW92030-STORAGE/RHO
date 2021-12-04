@@ -11,6 +11,10 @@ hex <- function(n) {
     return(paste(c1, c2, sep = ""))
 }
 
+primagen <- function() {
+    return(floor(runif(3, 0, 255)))
+}
+
 protogen <- function() { // Generate a random hex color
     rgb <- floor(runif(3, 0, 256))
     return(paste("\U0023", hex(rgb[1]), hex(rgb[2]), hex(rgb[3]), sep = ""))
