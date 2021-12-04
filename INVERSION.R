@@ -16,5 +16,5 @@ invert <- function(c) { # Invert a hex color. The input is of the form "#XXXXXX"
   green <- 255 - inv(substr(c, 4, 5))
   blue <- 255 - inv(substr(c, 6, 7))
   
-  return(paste("\U0023", hex(red), hex(green), hex(blue), sep = ""))
+  return(paste("\U0023", hex(red), hex(green), hex(blue), sep = "")) # Use the hex function from PROTOGEN.R
 }
