@@ -1,4 +1,4 @@
-inv <- function(c) {
+inv <- function(c) { // Change a hex string into a decimal integer.
   d1 <- utf8ToInt(substr(c, 1, 1))
   d2 <- utf8ToInt(substr(c, 2, 2))
   
