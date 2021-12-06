@@ -13,7 +13,7 @@ rectToPolar <- function(arr) { # arr is an array of 3 integers from 0 to 255.
     
     saturation <- 0;
     if (value != 0) saturation <- chroma / value;
-    return(c(hue, saturation, value)) // Angles are in radians
+    return(c(hue, saturation, value))
 }
 
 polarToRect <- function(arr) { # arr = [hue (rad), saturation (0 ... 1), value (0 ... 1)]
@@ -34,10 +34,16 @@ polarToRect <- function(arr) { # arr = [hue (rad), saturation (0 ... 1), value (
     return(floor(rgb * 255 + 0.5))
 }
 
+rotate <- function(arr, x) { # arr is a RGB triple. The function rotates the hue by x radians.
+    hsv <- rectToPolar(arr)
+    return(polarToRect(c(hsv[1] + x, hsv[2], hsv[3])))
+}
+
 col1 = c(255, 0, 0) # Example
 hsv = rectToPolar(col1)
-col2 = polarToRect(c(hsv[1] + acos(-0.5), hsv[2], hsv[3]))
+col2 = rotate(col1, acos(-0.5));
 col2 # [0, 255, 0]
-col3 = polarToRect(c(hsv[1] + 2 * acos(-0.5), hsv[2], hsv[3]))
+col3 = rotate(col1, acos(-0.5) * 2);
 col3 # [0, 0, 255]
+
 
