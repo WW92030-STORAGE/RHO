@@ -34,16 +34,35 @@ polarToRect <- function(arr) { # arr = [hue (rad), saturation (0 ... 1), value (
     return(floor(rgb * 255 + 0.5))
 }
 
-rotate <- function(arr, x) { # arr is a RGB triple. The function rotates the hue by x radians.
+rotate <- function(arr, x) { # arr is an RGB triple. The function rotates the hue by x radians.
     hsv <- rectToPolar(arr)
     return(polarToRect(c(hsv[1] + x, hsv[2], hsv[3])))
 }
 
-col1 = c(255, 0, 0) # Example
+spectrum <- function(arr, n) { # arr is an RGB triple. 
+    # This function generates a matrix where the rows are n evenly spaced colors around the 2*pi radian circle.
+    # All colors have the same saturation and value as arr, and arr is one of the colors.
+    
+    v <- c(arr)
+    for (x in 1 : (n - 1)) v <- append(v, rotate(arr, x * (6 * acos(0.5)) / n)) # This produces a vector of 3n terms
+    
+    res <- matrix(v, nrow = n, byrow = TRUE)
+    return(res)
+}
+
+
+
+# SOME EXAMPLES
+
+col1 = c(255, 0, 0)
 hsv = rectToPolar(col1)
 col2 = rotate(col1, acos(-0.5));
 col2 # [0, 255, 0]
 col3 = rotate(col1, acos(-0.5) * 2);
 col3 # [0, 0, 255]
 
-
+n <- 6
+evenlyspaced <- spectrum(col1, n)
+evenlyspaced
+evenlyspaced[3,] # [0, 255, 0]
+# To get the color from a matrix use the notation [row, ]
