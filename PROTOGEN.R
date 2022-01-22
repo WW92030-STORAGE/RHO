@@ -12,7 +12,7 @@ hex <- function(n) { # Integer to hex string
 }
 
 primagen <- function() { # Generate an array of 3 random byte integers
-    return(floor(runif(3, 0, 255)))
+    return(floor(runif(3, 0, 256)))
 }
 
 protogen <- function() { # Generate a random hex color
