@@ -9,19 +9,19 @@ memset <- function(n, x) {
 }
 
 # Evaluates b^e for integer exponents e
-exp <- function(b, e) {
+pow <- function(b, e) {
     if (e == 0) return(1)
-    if (e < 0) return(1.0 / exp(b, -1 * e))
-    if (e %% 2 == 1) return(b * exp(b, e - 1))
-    half <- exp(b, e / 2)
+    if (e < 0) return(1.0 / pow(b, -1 * e))
+    if (e %% 2 == 1) return(b * pow(b, e - 1))
+    half <- pow(b, e / 2)
     return(half * half)
 }
 
 # Evaluates b^e mod m for nonnegative exponents e
-exp <- function(b, e, m) {
+pow <- function(b, e, m) {
     if (e == 0) return(1)
-    if (e %% 2 == 1) return((b * exp(b, e - 1, m)) %% m)
-    half <- exp(b, e / 2, m)
+    if (e %% 2 == 1) return((b * pow(b, e - 1, m)) %% m)
+    half <- pow(b, e / 2, m)
     return((half * half) %% m)
 }
 
