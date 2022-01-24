@@ -1,6 +1,6 @@
 # Iterative pseudorandom number generator (PRNG)
 prng <- function(n, c, m) {
-    res <- exp(n, 31, m)
+    res <- pow(n, 31, m)
     res <- res + c
     return(res %% m)
 }
