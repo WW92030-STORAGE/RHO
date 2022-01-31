@@ -1,3 +1,5 @@
+# NOTE - Code is based on https://riptutorial.com/r/example/18339/environments-as-hash-maps.
+
 # Insert [k, v] into hashmap h
 insert <- function(h, k, v) {
     h[[k]] <- v
