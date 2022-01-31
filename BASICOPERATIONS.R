@@ -47,3 +47,9 @@ isPrime <- function(x) {
     
     return(TRUE)
 }
+
+# Generate a matrix of points from x and y arrays
+pm <- function(x, y) {
+    if (length(x) != length(y)) return(matrix())
+    return(matrix(c(x, y), byrow = FALSE, nrow = length(x)))
+}
