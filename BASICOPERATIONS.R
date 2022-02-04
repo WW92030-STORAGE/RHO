@@ -59,3 +59,10 @@ pad <- function(s, len, x) {
     while (nchar(s) < len) s <- paste(toString(x), s, sep = "")
     return(s)
 }
+
+# convert numeric to string array
+arrString <- function(arr) {
+    res <- c()
+    for (i in 1 : length(arr)) res <- append(res, toString(arr[i]))
+    return(res)
+}
