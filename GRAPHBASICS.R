@@ -50,6 +50,7 @@ edgelist <- function(g) {
     for (i in 1 : length(keys)) {
         vertex <- g[[keys[i]]]
         adj <- unlist(ls(vertex))
+        if (length(adj) <= 0) next
         for (j in 1 : length(adj)) {
             weight <- toString(vertex[[adj[[j]]]])
             maxlength <- max(c(maxlength, nchar(weight)))
@@ -59,6 +60,7 @@ edgelist <- function(g) {
     for (i in 1 : length(keys)) {
         vertex <- g[[keys[i]]]
         adj <- unlist(ls(vertex))
+        if (length(adj) <= 0) next
         for (j in 1 : length(adj)) {
             weight <- toString(vertex[[adj[j]]])
             weight <- pad(weight, maxlength, "0")
@@ -69,6 +71,7 @@ edgelist <- function(g) {
     res <- matrix(edges, nrow = length(edges) / 3, byrow = TRUE)
     return(res[order(res[, 3], res[, 1], res[, 2]), ])
 }
+
 
 # Example
 network <- graph()
