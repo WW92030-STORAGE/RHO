@@ -45,13 +45,25 @@ wedge2 <- function(g, a2, b2, c) {
 edgelist <- function(g) {
     keys <- unlist(ls(g))
     edges = c()
+    
+    maxlength <- 1
+    for (i in 1 : length(keys)) {
+        vertex <- g[[keys[i]]]
+        adj <- unlist(ls(vertex))
+        for (j in 1 : length(adj)) {
+            weight <- toString(vertex[[adj[[j]]]])
+            maxlength <- max(c(maxlength, nchar(weight)))
+        }
+    }
+    
     for (i in 1 : length(keys)) {
         vertex <- g[[keys[i]]]
         adj <- unlist(ls(vertex))
         for (j in 1 : length(adj)) {
             weight <- toString(vertex[[adj[j]]])
+            weight <- pad(weight, maxlength, "0")
             vec <- c(keys[i], adj[j], weight)
-            edges <- append(edges, )
+            edges <- append(edges, vec)
         }
     }
     res <- matrix(edges, nrow = length(edges) / 3, byrow = TRUE)
