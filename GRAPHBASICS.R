@@ -68,7 +68,7 @@ edge2(network, 6, 5)
 edge2(network, 8, 3)
 edge2(network, 2, 3)
 
-n1 <- network[["2"]]
+n1 <- network[["2"]] # Adjacency list for vertex "2"
 ls(n1) # "1" "3"
 
 connected(network, 5) # "4" "5" "6"
