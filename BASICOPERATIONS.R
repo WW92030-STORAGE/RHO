@@ -53,3 +53,9 @@ pm <- function(x, y) {
     if (length(x) != length(y)) return(matrix())
     return(matrix(c(x, y), byrow = FALSE, nrow = length(x)))
 }
+
+# Pad a string s with character x such that its length is at least len
+pad <- function(s, len, x) {
+    while (nchar(s) < len) s <- paste(toString(x), s, sep = "")
+    return(s)
+}
