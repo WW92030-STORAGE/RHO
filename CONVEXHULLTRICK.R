@@ -5,7 +5,8 @@ intersect <- function(a1, b1, a2, b2) {
     return(res)
 }
 
-# Intersection of lines represented by rows r1 and r2 in line matrix mat
+# Intersection of lines - rows r1 and r2 in line matrix mat
+# The row [b1, b2] represents the line y = b1 * x + b2
 intersection <- function(mat, r1, r2) {
     return(intersect(mat[r1, 1], mat[r1, 2], mat[r2, 1], mat[r2, 2]))
 }
@@ -17,7 +18,6 @@ eval <- function(b1, b2, x) {
 
 # Generate list of lines that contain extremal values
 # Any line that is always below at least one other line is excluded
-# The row [b1, b2] represents the line y = b1 * x + b2
 hull <- function(input) {
     
     lines <- input[order(input[, 1], input[, 2]), ]
