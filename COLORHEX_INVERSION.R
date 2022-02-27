@@ -18,3 +18,7 @@ invert <- function(c) { # Invert a hex color. The input is of the form "#XXXXXX"
   
   return(paste("\U0023", hex(red), hex(green), hex(blue), sep = "")) # Use the hex function from PROTOGEN.R
 }
+
+inv <- function(rgb) { # Invert an RGB array.
+  return(c(255 - rgb[1], 255 - rgb[2], 255 - rgb[3]))
+}
