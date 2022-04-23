@@ -88,14 +88,14 @@ trie <- function() {
     return(retval)
 }
 
-strings <- c("protogen", "primagen", "species", "terrain", "terraria", "terra", "terrarium", "prototype", "spectral", "deception", "darkness")
+strings <- c("protogen", "proto", "primagen", "species", "terrain", "terraria", "terra", "terrarium", "prototype", "spectral", "deception", "darkness")
 queries <- c("proto", "pro", "prime", "specs", "species", "terrarian", "terra", "spectrum", "deceptive", "protogen", "deceive", "dark")
 
 ex <- trie()
 for (i in 1 : length(strings)) ex$insert(strings[i])
 for (i in 1 : length(queries)) {
     cat(queries[i], ex$search(queries[i]), "\n") 
-} # "species terra protogen" are the only TRUE ones
+} # "proto", "species", "terra", and "protogen" are the only TRUE ones
 
 ex$remove("proto")
 
