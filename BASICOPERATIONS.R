@@ -2,10 +2,7 @@
 
 # Create an array of n values, each of which is a copy of x
 memset <- function(n, x) {
-  if (n <= 0) return(x)
-  arr <- c(x)
-  for (i in 2 : n) arr <- append(arr, x)
-  return(arr)
+  return(rep(x, n))
 }
 
 # Evaluates b^e for integer exponents e
