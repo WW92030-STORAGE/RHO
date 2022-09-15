@@ -25,9 +25,11 @@ pow <- function(b, e, m) {
 # Greatest common divisor
 gcd <- function(a, b) {
     if (a < b) return(gcd(b, a))
+    if (a < 0 | b < 0) return(gcd(abs(a), abs(b)))
     if (b == 0) return(a)
     return(gcd(a %% b, b))
 }
+
 
 
 # Basic primality test
