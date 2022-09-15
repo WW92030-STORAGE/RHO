@@ -30,8 +30,6 @@ gcd <- function(a, b) {
     return(gcd(a %% b, b))
 }
 
-
-
 # Basic primality test
 isPrime <- function(x) {
     if (x <= 1) return(FALSE)
