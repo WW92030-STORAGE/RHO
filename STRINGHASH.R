@@ -1,20 +1,3 @@
-# Create an array of n values, each of which is a copy of x
-memset <- function(n, x) {
-  if (n <= 0) return(x)
-  arr <- c(x)
-  for (i in 2 : n) arr <- append(arr, x)
-  return(arr)
-}
-
-# Create an array of characters from a string
-chararr <- function(s) {
-    res <- c()
-    n <- nchar(s)
-    for (i in 1 : n) res <- append(res, utf8ToInt(substr(s, i, i)))
-    
-    return(res)
-}
-
 stringhash <- function(rad = 2017, modx = 10007) { # Hashes arbitrary arrays of fixed alphabet size
     env <- new.env(hash = TRUE)
     env$radix = rad
@@ -41,7 +24,8 @@ stringhash <- function(rad = 2017, modx = 10007) { # Hashes arbitrary arrays of 
     
     env$phash <- function(arr) {
         n = length(arr)
-        res = memset(n, 0)
+        res <- c()
+        for (i in 1 : n) res <- append(res, 0)
         res[1] = arr[1]
         for (i in 2 : n) {
             res[i] = (env$radix * res[i - 1] + arr[i]) %% env$mod
